@@ -1,0 +1,15 @@
+Package: caprir
+Type: Package
+Title: R package for the CAPRI model
+Version: 0.1.0
+Author: mihaly himics
+Maintainer: mihaly himics <mihaly.himics@ec.europa.eu>
+Description: extracts data and results from CAPRI
+License: propietary, European Commission
+LazyData: TRUE
+Imports:
+  dplyr,
+  tidyr,
+  XML,
+  gdxrrw,
+  plyr

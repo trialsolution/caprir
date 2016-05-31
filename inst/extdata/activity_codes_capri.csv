@@ -1,0 +1,91 @@
+code,label
+UAAR,Utilized agricultural area
+CERE,Cereals
+OILS,Oilseeds
+OAR1,Other arable crops
+PERM,Vegetables and Permanent crops
+FODD,Fodder activities
+SETF,Set aside and fallow land
+CATA,All cattle activities
+BEFM,Beef meat activities
+PKPL,Other animals
+UAAR,Utilized agricultural area
+CERE,Cereals
+SWHE,Soft wheat
+DWHE,Durum wheat
+RYEM,Rye and Meslin
+BARL,Barley
+OATS,Oats
+MAIZ,Grain Maize
+OCER,Other cereals
+PARI,Paddy rice
+OILS,Oilseeds
+RAPE,Rape
+SUNF,Sunflower
+SOYA,Soya
+OOIL,Other oils
+OAR1,Other arable crops
+PULS,Pulses
+POTA,Potatoes
+SUGB,Sugar Beet
+TEXT,Flax and hemp
+TOBA,Tobacco
+OIND,Other industrial crops
+OCRO,Other crops
+PERM,Vegetables and Permanent crops
+TOMA,Tomatoes
+OVEG,Other Vegetables
+APPL,Apples Pears and Peaches
+OFRU,Other Fruits
+CITR,Citrus Fruits
+TAGR,Table Grapes
+OLIV,Olives for oil
+TABO,Table Olives
+TWIN,Wine
+NURS,Nurseries
+FLOW,Flowers
+FODD,Fodder activities
+MAIF,Fodder maize
+ROOF,Fodder root crops
+OFAR,Fodder other on arable land
+GRAE,Gras and grazings extensive
+GRAI,Gras and grazings intensive
+GRAA,Abandoned grass lands
+SETF,Set aside and fallow land
+ISET,"Set-aside obligatory, idling"
+GSET,"Set-aside obligatory, used as grass land"
+TSET,"Set-aside obligatory, tree cover"
+VSET,Set-aside voluntary
+FALL,Fallow land
+ARAA,Abandoned arable land
+CATA,All cattle activities
+DCOH,Dairy Cows high yield
+DCOL,Dairy Cows low yield
+SCOW,Other Cows
+HEIR,Heifers breeding
+HEIH,Heifers fattening high weight
+HEIL,Heifers fattening low weight
+BULH,Male adult cattle high weight
+BULL,Male adult cattle low weight
+CAMR,Raising male calves
+CAFR,Raising female Calves
+CAMF,Fattening male calves
+CAFF,Fattening female calves
+BEFM,Beef meat activities
+SCOW,Other Cows
+HEIH,Heifers fattening high weight
+HEIL,Heifers fattening low weight
+BULH,Male adult cattle high weight
+BULL,Male adult cattle low weight
+PKPL,Other animals
+PIGF,Pig fattening
+SOWS,Pig Breeding
+SHGM,Milk Ewes and Goat
+SHGF,Sheep and Goat fattening
+HENS,Laying hens
+POUF,Poultry fattening
+OANI,Other animals
+GRAS,Pasture
+ARAB,Arable land
+AGGT,All agricultural activities
+LABT,Total labour hours

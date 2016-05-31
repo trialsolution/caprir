@@ -1,0 +1,177 @@
+code,label
+TOOA,All products
+ALLP,All primary agricultural output
+CERE,Cereals
+OILS,Oilseeds
+OAFC,Other arable field crops
+VGPM,Vegetables and Permanent crops
+TROP,"Coffee, Teas and Cocoa"
+OCRP,All other crops
+FODC,Fodder
+MEAS,Meat
+OANP,Other Animal products
+ACQU,Fish and other acquatic products
+YANI,Young animals
+MANC,Manure output
+FERC,Fertiliser
+FEEC,Feedingstuff
+IANC,Remonte
+INPC,Other inputs
+MILC,Dairy products
+OILP,Oils
+CAKS,Oil cakes
+SECO,Secondary products
+TOOA,All products
+ALLP,All primary agricultural output
+CERE,Cereals
+SWHE,Soft wheat
+DWHE,Durum wheat
+RYEM,Rye and meslin
+BARL,Barley
+OATS,Oats
+MAIZ,Grain maize
+OCER,Other cereals
+PARI,Paddy rice
+OILS,Oilseeds
+RAPE,Rape seed
+SUNF,Sunflower seed
+SOYA,Soya seed
+OAFC,Other arable field crops
+PULS,Pulses
+POTA,Potatoes
+SUGB,Sugar beet
+FENI,"Yams, Manioc, Cassava and Other Roots and Tubers"
+VGPM,Vegetables and Permanent crops
+TOMA,Tomatoes
+OVEG,Other vegetables
+APPL,Apples  pears and peaches
+TAGR,Table grapes
+CITR,Citrus fruits
+OFRU,Other fruits
+OLIV,Olive for oil
+TABO,Table olives
+TWIN,Wine
+TROP,"Coffee, Teas and Cocoa"
+COFF,Coffee
+TEAS,Tea
+COCO,Cocoa
+OCRP,All other crops
+OOIL,Other oil
+TEXT,Flax and hemp
+TOBA,Tobacco
+OIND,Other industrial crops
+NURS,Nurseries
+FLOW,Flowers
+OCRO,Other crops
+FODC,Fodder
+MAIF,Fodder maize
+ROOF,Fodder root crops
+OFAR,Other fodder from arable land
+GRAS,Gras
+STRA,Straw
+MEAS,Meat
+BEEF,Beef
+PORK,Pork meat
+SGMT,Sheep and goat meat
+POUM,Poultry meat
+OANP,Other Animal products
+COMI,Cow and buffalo milk
+SGMI,Sheep and goat milk
+MILK,Raw milk
+EGGS,Eggs
+COMF,Milk for feeding
+OANI,Other animal output
+ACQU,Fish and other acquatic products
+FFIS,Fresh water fish
+SFIS,Saltwater fish
+OAQU,Other acquatic
+YANI,Young animals
+YCOW,Young cow output
+YBUL,Young bull output
+YHEI,Young heifer output
+YCAM,Young male calf output
+YCAF,Young female calf output
+YPIG,Young piglet output
+YLAM,Young lamb output
+YCHI,Young chicken output
+MANC,Manure output
+MANN,Manure nitrate
+MANP,Manure phospate
+MANK,Manure potassium
+FERC,Fertiliser
+NITF,Nitrate (N)
+PHOF,Phospate (P2O5)
+POTF,Potassium (K2O)
+CAOF,Calcium fertiliser
+FEEC,Feedingstuff
+FCER,Feed cereals
+FPRO,Feed rich protein
+FENE,Feed rich energy
+FMIL,Feed from milk product
+FOTH,Feed other
+FMAI,Fodder maize
+FROO,Fodder root crops
+FOFA,Fodder other on arable land
+FGRA,Gras
+FSTR,Straw
+FCOM,Milk for feeding
+FSGM,Sheep and Goat Milk for feeding
+IANC,Remonte
+ICOW,Young cow input
+IBUL,Young bull input
+IHEI,Young heifer input
+ICAM,Young male calf input
+ICAF,Young female calf input
+IPIG,Young piglet input
+ILAM,Young lamb input
+ICHI,Young chicken input
+INPC,Other inputs
+SEED,Seed
+PLAP,Plant protection
+IPHA,Pharma. inputs
+REPM,Maintenance machinery
+REPB,Maintenance buildings
+ELEC,Electricity
+EFUL,Fuel
+EGAS,Heating
+ELUB,Lubricants
+SERI,Agricultural Services input
+INPO,Other input
+MILC,Dairy products
+BUTT,Butter
+SMIP,Skimmed milk powder
+CHES,Cheese
+FRMI,Fresh milk products
+CREM,Cream
+COCM,Concentrated milk
+WMIO,Whole milk powder
+CASE,Casein
+WHEP,Whey powder
+OILP,Oils
+RAPO,Rape seed oil
+SUNO,Sunflower seed oil
+SOYO,Soya oil
+OLIO,Olive oil
+PLMO,Palm oil
+OTHO,Other oil
+CAKS,Oil cakes
+RAPC,Rape seed cake
+SUNC,Sunflowe seed cake
+SOYC,Soya cake
+OLIC,Olive cakes
+OTHC,Other cakes
+SECO,Secondary products
+RICE,Rice milled
+MOLA,Molasse
+STAR,Starch
+SUGA,Sugar
+BIOD,Bio diesel
+BIOE,Bio ethanol
+DDGS,Destilled dried grains from bio-ethanol processing
+FPRI,Protein rich by products
+FENI,Energy rich by products
+DISL,Total diesel
+LAND,Agricultural land
+FEDE,Feed energy input
+GASL,Total gasoline
+LAND,Land

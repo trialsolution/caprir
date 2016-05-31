@@ -1,0 +1,406 @@
+<generated>
+
+<table>
+  <theme>Farm</theme>
+  <name>Supply details</name>
+  <regionSel>Regions and countries</regionSel>
+  <activityText>Activity</activityText>
+  <regionText>Region</regionText>
+  <yearText>Year</yearText>
+  <productText>Item</productText>
+  <dim5Text>hide</dim5Text>
+  <dim5Sel>empty</dim5Sel>
+  <scenText>Scenario</scenText>
+  <defpivot>0PSI</defpivot>
+  <itemDim>product</itemDim>
+ <item>
+    <itemName>Income</itemName>
+    <key>MGVA</key>
+    <unit>Euro/ha or head</unit>
+    <longtext>Premiums + Revenues - variable costs according to the definition of Economic Accounts for Agriculture, income available to farmers to pay for land, labour, capital and profits</longtext>
+    <link>Income Indicators</link>
+ </item>
+ <item>
+    <itemName>Hectares or herd size</itemName>
+    <longtext>For slauthering or raising activities: in number of slaughtered / raised heads</longtext>
+    <key>LEVL</key>
+    <unit>1000 ha or hds</unit>
+    <pdf>docs\docu.pdf#Module for agricultural supply at regional level</pdf>
+ </item>
+ <item>
+    <itemName>Average yearly herd size</itemName>
+    <key>HERD</key>
+    <unit>hds</unit>
+    <pdf>docs\docu.pdf#Module for agricultural supply at regional level</pdf>
+ </item>
+ <item>
+    <itemName>Yield</itemName>
+    <key>YILD</key>
+    <longtext>Main output by that activity (group) per activity levels</longtext>
+    <unit>kg, Const EU or 1/1000 head/ha</unit>
+ </item>
+ <item>
+    <itemName>Supply</itemName>
+    <key>YILD</key>
+    <unit>1000 t, 1000 ha or Mio Const EU</unit>
+    <eval>VAL*VAL[*,*,LEVL,*,*,*]/1000</eval>
+    <longtext>(Hectares or herd size) x yield = Supplied quantity of main output by that activity (group), not necessary equal to total supply of that product</longtext>
+    <link>Product Balances</link>
+ </item>
+ <item>
+    <itemName>Crop share/Animal density</itemName>
+    <key>LEVL</key>
+    <unit>% or 0.01 animals/ha</unit>
+    <eval>VAL/VAL[*,UAAR,LEVL,*,*,*] * 100.</eval>
+ </item>
+ <item>
+    <itemName>Crop share/Animal density, per arable land</itemName>
+    <key>LEVL</key>
+    <unit>% or 0.01 animals/ha</unit>
+    <eval>VAL/VAL[*,ARAB,LEVL,*,*,*] * 100.</eval>
+ </item>
+ <item>
+    <itemName>Production per UAAR</itemName>
+    <unit>kg, 1/1000 head or Const EU/ha</unit>
+    <key>YILD</key>
+    <eval>VAL*VAL[*,*,LEVL,*,*,*]/VAL[*,UAAR,LEVL,*,*,*]</eval>
+ </item>
+</table>
+
+<table>
+  <theme>Feed</theme>
+  <name>Feed requirements</name>
+  <activitySel>Animals</activitySel>
+  <regionSel>Regions and countries</regionSel>
+  <activityText>Animal activity</activityText>
+  <regionText>Region</regionText>
+  <yearText>Year</yearText>
+  <productText>Product</productText>
+  <dim5Text>hide</dim5Text>
+  <dim5Sel>empty</dim5Sel>
+  <scenText>Scenario</scenText>
+  <defpivot>0PSI</defpivot>
+  <defview>Spider chart</defview>
+  <itemDim>Product</itemDim>
+ <item>
+    <itemName>Net energy lactation</itemName>
+    <key>ENNE</key>
+ </item>
+ <item>
+    <itemName>Crude protein</itemName>
+    <key>CRPR</key>
+ </item>
+ <item>
+    <itemName>Lysine</itemName>
+    <key>LISI</key>
+ </item>
+ <item>
+    <itemName>Dry matter</itemName>
+    <key>DRMA</key>
+ </item>
+ <item>
+    <itemName>Dry matter min</itemName>
+    <key>DRMN</key>
+ </item>
+ <item>
+    <itemName>Dry matter max</itemName>
+    <key>DRMX</key>
+ </item>
+ <item>
+    <itemName>Fiber digestible</itemName>
+    <key>FIDI</key>
+ </item>
+ <item>
+    <itemName>Fiber dairy cows</itemName>
+    <key>FICO</key>
+ </item>
+ <item>
+    <itemName>Fiber cattle</itemName>
+    <key>FICT</key>
+ </item>
+ <item>
+    <itemName>Fiber sheep and goat milk</itemName>
+    <key>FISM</key>
+ </item>
+ <item>
+    <itemName>Fiber sheep and goat fattening</itemName>
+    <key>FISF</key>
+ </item>
+ <item>
+    <itemName>Fiber long</itemName>
+    <key>FILG</key>
+ </item>
+</table>
+
+<table>
+  <theme>Farm</theme>
+  <name>Main crop areas</name>
+  <activitySel>Crop aggregates</activitySel>
+  <regionSel>Regions and countries</regionSel>
+  <activityText>Crop activity group</activityText>
+  <regionText>Region</regionText>
+  <yearText>Year</yearText>
+  <productText>Product</productText>
+  <dim5Text>hide</dim5Text>
+  <dim5Sel>empty</dim5Sel>
+  <scenText>Scenario</scenText>
+  <defpivot>0ISP</defpivot>
+  <itemDim>Product</itemDim>
+ <item>
+    <itemName>Acreage</itemName>
+    <key>LEVL</key>
+    <unit>1000 ha</unit>
+    <link>Supply details</link>
+ </item>
+</table>
+<table>
+  <theme>Farm</theme>
+  <name>Main crop area pie map</name>
+  <activitySel>Crop aggregates</activitySel>
+  <regionSel>Countries</regionSel>
+  <activityText>Crop activity group</activityText>
+  <regionText>Region</regionText>
+  <yearText>Year</yearText>
+  <productText>Product</productText>
+  <dim5Text>hide</dim5Text>
+  <dim5Sel>empty</dim5Sel>
+  <scenText>Scenario</scenText>
+  <defpivot>0RSP</defpivot>
+  <COO>coo\RMS.zip</COO>
+  <defview>Piemap</defview>
+  <itemDim>Product</itemDim>
+ <item>
+    <itemName>Acreage</itemName>
+    <key>LEVL</key>
+    <unit>1000 ha</unit>
+    <link>Supply details</link>
+ </item>
+</table>
+
+<table>
+  <theme>Welfare</theme>
+  <name>Economic Accounts for Agriculture</name>
+  <regionSel>Countries</regionSel>
+  <productSel>Economic Account for Agriculture</productSel>
+  <activityText>EAA position</activityText>
+  <regionText>Region</regionText>
+  <yearText>Year</yearText>
+  <productText>Product</productText>
+  <dim5Text>hide</dim5Text>
+  <dim5Sel>empty</dim5Sel>
+  <scenText>Scenario</scenText>
+  <defpivot>0PSI</defpivot>
+  <itemDim>Activity</itemDim>
+ <item>
+    <itemName>Gross EAA value</itemName>
+    <key>EAAG</key>
+    <unit>Mio Euro</unit>
+    <longtext>Value of all products and services produced or used by the agricultural sector at market prices, according to the definition of Economic Accounts for Agriculture (EAA)</longtext>
+    <link>Welfare</link>
+ </item>
+ <item>
+    <itemName>Unit value EAA</itemName>
+    <key>UVAG</key>
+    <unit>Euro/t</unit>
+    <longtext>Average price used by the Economic Accounts to value outputs or inputs</longtext>
+    <link>Prices</link>
+ </item>
+ <item>
+    <itemName>Quantity</itemName>
+    <key>GROF</key>
+    <unit>1000 t</unit>
+    <longtext>quantity produced or used by the agricultural sector</longtext>
+    <link>Supply details</link>
+ </item>
+</table>
+
+
+<table>
+  <theme>Markets</theme>
+  <name>Product balances, detailed</name>
+  <activityText>Balance item</activityText>
+  <regionText>Region</regionText>
+  <yearText>Year</yearText>
+  <productText>Product</productText>
+  <dim5Text>hide</dim5Text>
+  <dim5Sel>empty</dim5Sel>
+  <scenText>Scenario</scenText>
+  <defpivot>0I0S</defpivot>
+  <itemDim>Activity</itemDim>
+ <item>
+    <itemName>Supply[German:Produktion]</itemName>
+    <key>GROF</key>
+    <unit>1000 t</unit>
+    <longtext>quantity produced or used by the agricultural sector</longtext>
+    <link>Supply details</link>
+ </item>
+ <item>
+    <itemName>Losses on farm[German:Verluste auf der Erzeugerstufe]</itemName>
+    <key>LOSF</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Seed use on farm[German:Saatgut aus eigener Erzeugung]</itemName>
+    <key>SEDF</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Other internal use[German:Andere interne Verwendung]</itemName>
+    <key>INTF</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Marketable production[German:Marktgaengie Produktion]</itemName>
+    <key>MAPR</key>
+    <unit>1000 t</unit>
+    <link>Supply details</link>
+ </item>
+ <item>
+    <itemName>Imports[German:Importe]</itemName>
+    <key>IMPT</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Intervention purchases[German:Interventionsankaeufe]</itemName>
+    <key>INTP</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Exports[German:Exporte]</itemName>
+    <key>EXPT</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Net trade[German:Nettohandel]</itemName>
+    <key>NTRD</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Domestic market use[German:Einheimische Verwendung]</itemName>
+    <key>DOMM</key>
+    <unit>1000 t</unit>
+    <link>Product Balances</link>
+ </item>
+ <item>
+    <itemName>Human Consumption[German:Nahrungsmittelnachfrage]</itemName>
+    <key>HCOM</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Feed[German:Futternachfrage]</itemName>
+    <key>FEDM</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Seed[German:Saatgut]</itemName>
+    <key>SEDM</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Processing to secondaries[German:Weiterverarbeitung zu Sekundaerprodukten]</itemName>
+    <key>PRCM</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Biofuels processing[German:Weiterverabeitung zu Biokraftstoffen]</itemName>
+    <key>BIOF</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Other industrial production[German:Andere industrielle Weiterverarbeitung]</itemName>
+    <key>INDM</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Losses on market[German:Verluste Markt]</itemName>
+    <key>LOSM</key>
+    <unit>1000 t</unit>
+ </item>
+ <item>
+    <itemName>Stock changes on market[German:Bestandsaenderung Markt]</itemName>
+    <key>STCM</key>
+    <unit>1000 t</unit>
+ </item>
+</table>
+
+
+<table>
+  <theme>Prices</theme>
+  <name>Prices</name>
+  <activityText>Prices</activityText>
+  <regionText>Region</regionText>
+  <yearText>Year</yearText>
+  <productText>Product</productText>
+  <dim5Text>hide</dim5Text>
+  <dim5Sel>empty</dim5Sel>
+  <scenText>Scenario</scenText>
+  <itemDim>Activity</itemDim>
+  <defpivot>0PSI</defpivot>
+ <item>
+    <itemName>Consumer Price[German:Verbraucherpreis]</itemName>
+    <key>UVAD</key>
+    <unit>Euro/t</unit>
+    <link>Demand Balances</link>
+ </item>
+ <item>
+    <itemName>Producer Price[German:Produzentenpreis]</itemName>
+    <key>UVAG</key>
+    <unit>Euro/t</unit>
+    <link>Supply details</link>
+ </item>
+ <item>
+    <itemName>Unit Value Imports</itemName>
+    <key>UVAI</key>
+    <unit>Euro/t</unit>
+    <longtext>Average prices of imports[value of all imports divided by quantities]</longtext>
+ </item>
+ <item>
+    <itemName>Unit Value Exports</itemName>
+    <key>UVAE</key>
+    <unit>Euro/t</unit>
+    <longtext>Average prices of exports[value of all exports divided by quantities]</longtext>
+ </item>
+ <item>
+    <itemName>Administrative Price</itemName>
+    <key>PADM</key>
+    <unit>Euro/t</unit>
+    <link>Tax payers cost</link>
+ </item>
+ <item>
+    <itemName>Shadow price of supply balance</itemName>
+    <key>PSHW</key>
+    <unit>Euro/t</unit>
+    <link>Dual values</link>
+ </item>
+</table>
+
+<table>
+  <theme>Meta</theme>
+  <name>No table with descriptions</name>
+  <regionSel>fromDataCube</regionSel>
+  <activitySel>fromDataCube</activitySel>
+  <productSel>fromDatACube</productSel>
+  <dim5Sel>fromDatACube</dim5Sel>
+  <defpivot>0PSA</defpivot>
+  <itemDim>none</itemDim>
+</table>
+
+<table>
+  <theme>Meta</theme>
+  <name>No table with descriptions, using existing lists</name>
+  <regionSel>Regions and countries</regionSel>
+  <activityText>Activity</activityText>
+  <activitySel>anyThing</activitySel>
+  <regionText>Region</regionText>
+  <yearText>Year</yearText>
+  <productText>Item</productText>
+  <productSel>anyThing</productSel>
+  <scenText>Scenario</scenText>
+  <defpivot>0PSA</defpivot>
+  <itemDim>none</itemDim>
+</table>
+
+
+
+
+</generated>
