@@ -3,12 +3,51 @@
 #' @param region_list List of regions (CAPRI code) for which the market balances should be derived
 #' @param product_list List of commodities (CAPRI code) for which the market balances should be derived
 #' @param scenario_list List of CAPRI scenarios for which the market balances should be derived
+#' @param folder Path to folder containing the CAPRI result files
 #'
-
+#' @return
+#'
+#' @export
+#'
+#' @examples
+#'
+#' # CAPRI BALANCES (NO INTRA-TRADE)
+#' #-------------------------------
+#'
+#' # define regions and commodities -- for which products do you need the market balances?
+#' load("data/eu_region.RData")
+#'
+#' meat_product       <- c("PORK", "POUM", "BEEF", "SGMT")
+#' dairy_product      <- c("MILK", "BUTT", "CREM", "FRMI", "CHES", "SMIP", "COCM", "WMIO", "CASE", "WHEP")
+#' cereal_product     <- c("CERE", "RYEM", "WHEA", "OATS", "BARL", "OCER", "MAIZ", "RICE")
+#' oilseeds_product   <- c("RAPE", "SOYA", "SUNF")
+#' cakes_product      <- c("RAPC", "SUNC", "SOYC", "CAKS")
+#' oils_product       <- c("RAPO", "SUNO", "SOYO", "OLIO", "PLMO")
+#'
+#' baseline_scenarios <- c("res_2_0810mtr_rd_ref", "res_2_0813mtr_rd_ref", "res_2_0820mtr_rd_ref", "res_2_0825mtr_rd_ref", "res_2_0830mtr_rd_ref")
+#'
+#' # get market balances
+#'
+#' meat_balance       <- convert_balance_detailed(eu_region, meat_product, baseline_scenarios, folder = "mydata")
+#' cereal_balance     <- convert_balance_detailed(eu_region, cereal_product, baseline_scenarios, folder = "mydata")
+#' dairy_balance      <- convert_balance_detailed(eu_region, dairy_product, baseline_scenarios, folder = "mydata")
+#' oilseeds_balance   <- convert_balance_detailed(eu_region, oilseeds_product, baseline_scenarios, folder = "mydata")
+#' cakes_balance      <- convert_balance_detailed(eu_region, cakes_product, baseline_scenarios, folder = "mydata")
+#' oils_balance       <- convert_balance_detailed(eu_region, oils_product, baseline_scenarios, folder = "mydata")
+#' sugar              <- convert_balance_detailed(eu_region, c("SUGA"), baseline_scenarios, folder = "mydata")
+#'
 convert_balance_detailed <- function(region_list, product_list, scenario_list, folder = "mydata"){
 
 # load all scenario results into memory
-  for(i in 1:length(scenario_list)) {load(file=paste(folder, "/", scenario_list[i], ".RData", sep=""))}
+  for(i in 1:length(scenario_list)) {
+
+    assign(scenario_list[i], rgdx.param(paste(folder, "/", scenario_list[i], ".gdx", sep = ""), "dataout"))
+
+    assign(scenario_list[i], as_tibble(get(scenario_list[i])))
+
+#    load(file=paste(folder, "/", scenario_list[i], ".RData", sep=""))
+
+    }
 
 # get market balances for the first scenario
   balance <- get_market_balance(get(scenario_list[1]), region_list, product_list)
@@ -25,7 +64,7 @@ convert_balance_detailed <- function(region_list, product_list, scenario_list, f
     }
   }
 
-  balance <- spread(balance, i3, value)
+  balance <- spread(balance, .i3, dataOut)
 
   # replace NAs with zeros
   balance[is.na(balance)] <- 0
@@ -59,12 +98,12 @@ convert_balance_detailed <- function(region_list, product_list, scenario_list, f
     mutate(exports = Exports_noIntra)
 
   balance <- balance %>%
-    select(i1, i4, i5, supply, human_cons, processing, biofuels, feed, interv_ch, imports, exports, nettrade)
+    select(.i1, .i4, .i5, supply, human_cons, processing, biofuels, feed, interv_ch, imports, exports, nettrade)
 
 
   balance <- balance %>%
-    arrange(i4, i1, i5) %>%
-    select(i4, i1, i5, supply, human_cons, processing, biofuels, feed, interv_ch, imports, exports, nettrade)
+    arrange(.i4, .i1, .i5) %>%
+    select(.i4, .i1, .i5, supply, human_cons, processing, biofuels, feed, interv_ch, imports, exports, nettrade)
 
 
   return(balance)
@@ -73,11 +112,27 @@ convert_balance_detailed <- function(region_list, product_list, scenario_list, f
 
 #' Get the product balances for all baseline years and all products
 #'
+#' @param region_list List of regions (CAPRI code) for which balances should be derived
+#' @param product_list List of commodities (CAPRI code) for which balances should be derived
+#' @param scenario_list List of CAPRI scenarios for which  balances should be derived
+#' @param folder Path to folder containing the CAPRI result files
 #'
-
+#' @return A tibble with product balances
+#'
+#' @export
+#'
 convert_product_balance <- function(region_list, product_list, scenario_list, folder = "mydata"){
 
-  for(i in 1:length(scenario_list)) {load(file=paste(folder, "/", scenario_list[i], ".RData", sep=""))}
+  for(i in 1:length(scenario_list)) {
+
+
+    assign(scenario_list[i], rgdx.param(paste(folder, "/", scenario_list[i], ".gdx", sep = ""), "dataout"))
+
+    assign(scenario_list[i], as_tibble(get(scenario_list[i])))
+
+#    load(file=paste(folder, "/", scenario_list[i], ".RData", sep=""))
+
+    }
 
 
   balance <- get_product_balance(get(scenario_list[1]), region_list, product_list)
@@ -94,7 +149,7 @@ convert_product_balance <- function(region_list, product_list, scenario_list, fo
   }
 
 
-  balance <- spread(balance, i3, value)
+  balance <- spread(balance, .i3, dataOut)
 
   # replace NAs with zeros
   balance[is.na(balance)] <- 0
@@ -124,7 +179,7 @@ convert_product_balance <- function(region_list, product_list, scenario_list, fo
 
   all_product <- product_list$code
 
-  my_all    <- balance %>% filter(i4 %in% all_product)
+  my_all    <- balance %>% filter(.i4 %in% all_product)
 
 
   my_all <- my_all %>%
@@ -149,13 +204,13 @@ convert_product_balance <- function(region_list, product_list, scenario_list, fo
 
 #select columns
   my_all <- my_all %>%
-    select(i1, i4, i5, supply, mark_prod, losses_farm, seed_farm, imports, exports
+    select(.i1, .i4, .i5, supply, mark_prod, losses_farm, seed_farm, imports, exports
            , nettrade, intervention, dom_use, human_cons, feed, seed_market, processing_sec
            , biofuels, other_ind, losses_market, stockch_market)
 
 #re-arrange ordering
   my_all <- my_all %>%
-    arrange(i4, i1, i5)
+    arrange(.i4, .i1, .i5)
 
 # meaningful column names
 
@@ -172,12 +227,24 @@ convert_product_balance <- function(region_list, product_list, scenario_list, fo
 
 #' Get the Farm|Supply details tables for all regions/activities/year
 #'
+#' @param region_list List of regions (CAPRI code) for which product data should be derived
+#' @param product_list List of commodities (CAPRI code) for which product data should be derived
+#' @param scenario_list List of CAPRI scenarios for which  product datashould be derived
+#' @param folder Path to folder containing the CAPRI result files
 #'
+#' @export
 #'
-
 convert_supply_details <- function(region_list, product_list, scenario_list, folder = "mydata"){
 
-  for(i in 1:length(scenario_list)) {load(file=paste(folder, "/", scenario_list[i], ".RData", sep=""))}
+  for(i in 1:length(scenario_list)) {
+
+    assign(scenario_list[i], rgdx.param(paste(folder, "/", scenario_list[i], ".gdx", sep = ""), "dataout"))
+
+    assign(scenario_list[i], as_tibble(get(scenario_list[i])))
+
+#    load(file=paste(folder, "/", scenario_list[i], ".RData", sep=""))
+
+    }
 
 
 
@@ -194,7 +261,7 @@ convert_supply_details <- function(region_list, product_list, scenario_list, fol
   }
 
 
-  balance <- spread(balance, i4, value)
+  balance <- spread(balance, .i4, dataOut)
 
   # replace NAs with zeros
   balance[is.na(balance)] <- 0
@@ -209,7 +276,7 @@ convert_supply_details <- function(region_list, product_list, scenario_list, fol
 
   all_activity <- activity_list$code
 
-  my_all    <- balance %>% filter(i3 %in% all_activity)
+  my_all    <- balance %>% filter(.i3 %in% all_activity)
 
 
   my_all <- my_all %>%
@@ -222,11 +289,11 @@ convert_supply_details <- function(region_list, product_list, scenario_list, fol
 
   #select columns
   my_all <- my_all %>%
-    select(i1, i3, i5, supply, yield, level, gross_value_added)
+    select(.i1, .i3, .i5, supply, yield, level, gross_value_added)
 
   #re-arrange ordering
   my_all <- my_all %>%
-    arrange(i3, i1, i5)
+    arrange(.i3, .i1, .i5)
 
   # meaningful column names
 

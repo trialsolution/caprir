@@ -12,4 +12,9 @@ Imports:
   tidyr,
   XML,
   gdxrrw,
-  plyr
+  plyr,
+  tidyverse,
+  tidykml,
+  ggmap,
+  eurostat
+RoxygenNote: 7.0.0

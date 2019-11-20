@@ -1,13 +1,13 @@
-
-
-#' Extract GUI tables from the results data cube
+#' Generic function which filters the data cube
 #'
-#' @param datacube A dplyr table with the raw capmod results
-#' @param region_list A character list of regions
-#' @param product_list List of commodities
-#' @param scenario Scenario for which you want to retrieve results
+#' @param datacube R object with full CAPRI resutls
+#' @param region_list List of Regions to narrowed down on
+#' @param dim5_list List of the fifth dimension elements
+#' @param cols_list List of the elements in the column (COLS)
+#' @param rows_list List of elements in the rows (ROWs)
+#' @param scenario_name Name of the scenario you wish
 #'
-#' @return A dply table containing the market balance
+#' @return tibble with filtered results
 #'
 filter_results_cube <- function(datacube, region_list, dim5_list, cols_list, rows_list, scenario_name){
 
@@ -21,6 +21,18 @@ filter_results_cube <- function(datacube, region_list, dim5_list, cols_list, row
 
 }
 
+
+#' Extracts pre-defined thematic tables from the results data cube
+#'
+#' @param datacube A dplyr table with the raw capmod results
+#' @param region_list A character list of regions
+#' @param product_list List of commodities
+#' @param scenario Scenario for which you want to retrieve results
+#'
+#' @return A dplyr table (tibble) containing the market balance
+#'
+#' @export
+#'
 extract_gui_table <- function(region_list, dim5_list, cols_list, rows_list, scenario_list, folder = "mydata"){
 
 # load all scenario results into memory
@@ -45,6 +57,23 @@ extract_gui_table <- function(region_list, dim5_list, cols_list, rows_list, scen
   return(GUI_table)
 }
 
+
+#' GEts pre-defined thematic tables direclty from a result folder
+#'
+#' @param datacube A dplyr table with the raw capmod results
+#' @param region_list A character list of regions
+#' @param product_list List of commodities
+#' @param scenario Scenario for which you want to retrieve results
+#'
+#' @return A dplyr table (tibble) containing the market balance
+#'
+#' @export
+#'
+#' @examples
+#'
+#' my_scenarios <- c("res_2_0830ghg_refpol_endotech_set12")
+#' supply_table <- get_GUI_table(table = "supply details", my_scenarios, folder = "mydata")
+#'
 get_GUI_table <- function(table = "supply details", scenario_list, folder = "mydata"){
 
 
@@ -189,13 +218,6 @@ get_GUI_table <- function(table = "supply details", scenario_list, folder = "myd
 
 }
 
-
-
-
-
-
-
-# calculated columns
 
 
 

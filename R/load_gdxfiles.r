@@ -11,13 +11,16 @@
 #'
 #' @example get_capmod_res("res_2_0830_baseline", in_folder = "results/capmod", out_folder = "mydata", gamspath = "/opt/GAMS")
 #'
-get_capmod_res <- function(scenario, in_folder, out_folder, gamspath = "/opt/GAMS"){
+#' @export
+get_capmod_res <- function(scenario, in_folder, out_folder, gamspath = "/opt/GAMS", autoload = FALSE){
 
   igdx(gamspath)
 
   assign(scenario, rgdx.param(paste(in_folder, "/", scenario, ".gdx", sep = ""), "dataout"))
   assign(scenario, tbl_df(get(scenario)))
   save( list = scenario, file = paste(out_folder, "/", scenario, ".RData", sep = ""))
+
+  if(autoload) { load(file = paste(out_folder, "/", scenario, ".RData", sep = "")) }
 
 # substr(strsplit(scenario, "_")[[1]][3], start = 5, stop = nchar(strsplit(scenario, "_"[[1]][3])))
 
