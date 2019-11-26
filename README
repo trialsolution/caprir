@@ -1,7 +1,0 @@
-
-Installation from source
-------------------------
-
-Download or build the source package and then execute:
-
-install.packages("caprir_0.1.0.tar.gz",repos=NULL,type="source")
